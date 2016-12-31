@@ -1,0 +1,17 @@
+{ 
+    "name": "Waster",
+    "version": "1.0",
+    "background": {
+        "scripts": ["waster.js"],
+        "persistent": true
+    },
+      "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "<all_urls>"
+    ],
+    "manifest_version": 2
+}
