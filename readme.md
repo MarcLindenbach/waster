@@ -1,5 +1,5 @@
-# Waster
-See how much time you waster (spend) on various websites.
+# Waster Chrome Extension
+See how much time you waste (spend) on various websites.
 
 ## Install
 1. Clone this repo
