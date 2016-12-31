@@ -10,4 +10,4 @@ See how much time you waste (spend) on various websites.
 6. Voilla 
 
 ## Use
-Click the 'T' in the top right corner to get a list of sites you've visited and how much time you spent there. Click reset to clear the history.
+Click the 'W' in the top right corner to get a list of sites you've visited and how much time you spent there. Click reset to clear the history.
