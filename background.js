@@ -1,20 +1,33 @@
 const INTERVAL = 1000;
 let count = 0;
+
 setInterval(() => {
     chrome.tabs.query({ highlighted: true }, tabs => {
         const hosts = tabs.map(tab => {
             const location = getLocation(tab.url);
             return location ? location.host : '';
         });
-        const data = JSON.parse(localStorage.getItem('hosts')) || {};
+        const hostData = JSON.parse(localStorage.getItem('hosts')) || {};
         distinct(hosts).forEach(host => {
-            if (!(host in data)) {
-                data[host] = 0;
+            if (!(host in hostData)) {
+                hostData[host] = 0;
             }
-            data[host]++;
+            hostData[host]++;
         });
-        localStorage.setItem('hosts', JSON.stringify(data));
+        localStorage.setItem('hosts', JSON.stringify(hostData));
     });
+
+    // Clear the hosts entry every day
+    const todaysDate = new Date().getDate();
+    if ('date' in localStorage) {
+        const savedDate = localStorage.getItem('date');
+        if (todaysDate !== parseInt(savedDate)) {
+            localStorage.setItem('date', todaysDate);
+            localStorage.removeItem('hosts');    
+        }
+    } else {
+        localStorage.setItem('date', todaysDate);
+    }
 }, INTERVAL);
 
 function getLocation(href) {
