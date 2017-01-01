@@ -1,7 +1,7 @@
 const INTERVAL = 1000;
 let count = 0;
 setInterval(() => {
-    chrome.tabs.query({}, tabs => {
+    chrome.tabs.query({ highlighted: true }, tabs => {
         const hosts = tabs.map(tab => {
             const location = getLocation(tab.url);
             return location ? location.host : '';
