@@ -2,7 +2,7 @@
     "name": "Waster",
     "version": "1.0",
     "background": {
-        "scripts": ["waster.js"],
+        "scripts": ["background.js"],
         "persistent": true
     },
       "browser_action": {

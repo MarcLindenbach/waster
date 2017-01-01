@@ -1,17 +1,10 @@
-const resetButton = document.querySelector('.reset');
-
-resetButton.addEventListener('click', () => {
-    for (let key in localStorage) {
-        localStorage.removeItem(key);
-    }
-});
-
 function renderTime() {
     const timeDiv = document.querySelector('.time');
-
+    const hosts = JSON.parse(localStorage.getItem('hosts'));
     let times = [];
-    for (let key in localStorage) {
-        const seconds = localStorage.getItem(key);
+    for (let key in hosts) {
+        console.log(hosts[key]);
+        const seconds = hosts[key];
         const date = new Date(null);
         date.setSeconds(seconds);
         times = [...times, {

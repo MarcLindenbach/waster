@@ -1,10 +1,14 @@
 body {
     font-size: 1rem;
+    text-align: center;
 }
 
 td.key {
     display: block;
-    width: 300px;
     text-align: right;
     padding-right: 1rem;
+}
+
+td.time {
+    text-align: left;
 }

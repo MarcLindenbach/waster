@@ -6,11 +6,14 @@ setInterval(() => {
             const location = getLocation(tab.url);
             return location ? location.host : '';
         });
+        const data = JSON.parse(localStorage.getItem('hosts')) || {};
         distinct(hosts).forEach(host => {
-            let time = localStorage.getItem(host) || 0;
-            time++;     
-            localStorage.setItem(host, time);
+            if (!(host in data)) {
+                data[host] = 0;
+            }
+            data[host]++;
         });
+        localStorage.setItem('hosts', JSON.stringify(data));
     });
 }, INTERVAL);
 
